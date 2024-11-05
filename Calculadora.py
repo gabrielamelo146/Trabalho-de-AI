@@ -33,3 +33,12 @@ def calculadora():
             else:
                 print("Ainda não foram realizadas operações.")
             continue  # Volta ao menu
+
+ 
+   # função principal
+
+        #Entrada de números
+        num1=float(input("Insira o primeiro numero: "))
+        num2=float(input("Insira o segundo numero: "))
+
+         
