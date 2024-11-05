@@ -41,4 +41,30 @@ def calculadora():
         num1=float(input("Insira o primeiro numero: "))
         num2=float(input("Insira o segundo numero: "))
 
-         
+         #Operações
+        if Operador == "+" :
+            result = num1 + num2
+            print(" O resultado é: " + str(result))
+            lista_contas.append( str(num1) + " + " + str(num2) + " = " + str(result))
+
+        elif Operador == "-" :
+            result = num1-num2
+            print(" O resultado é: " + str(result))
+            lista_contas.append(str(num1) + " - " + str(num2) + " = " + str(result))
+
+        elif Operador == "/":
+            result = num1/num2
+            print(" O resultado é: " + str(result))
+            lista_contas.append( str(num1) + " / " + str(num2) + " = " + str(result))
+
+        elif Operador == "*":
+            result = num1*num2
+            print(" O resultado é: " + str(result))
+            lista_contas.append( str(num1) + " * " + str(num2) + " = " + str(result))
+
+
+
+
+calculadora()
+
+ 
