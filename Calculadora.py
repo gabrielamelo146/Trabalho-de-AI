@@ -20,3 +20,16 @@ def calculadora():
         if Operador not in operadores_validos:
             print("ERRO! Escolha apenas as opções disponíveis.")
             continue  # volta ao início do loop
+
+         #Sair do loop
+        elif Operador == "s":
+            break
+
+        # Exibir histórico
+        elif Operador == "hist":
+            if lista_contas:
+                print("Histórico de operações:\n")
+                print(lista_contas)
+            else:
+                print("Ainda não foram realizadas operações.")
+            continue  # Volta ao menu
