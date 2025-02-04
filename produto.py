@@ -30,3 +30,21 @@ def associar_fornecedor(self, fornecedor):
             print(f"Fornecedores do produto {self.nome}:")
             for fornecedor in self.fornecedores:
                 print(f"- {fornecedor.nome} ({fornecedor.telefone}, {fornecedor.email})")
+
+
+#validações
+ def is_valid_tipo(self):
+        lista_tipos = ["frescos", "congelados", "embalados", "enlatados"]
+        if self.tipo in lista_tipos:
+            return True
+        print("ERRO! Tipo de produto inválido. Tente novamente!")
+        return False
+
+    def is_valid_preco(self):
+        if not isinstance(self.preco, (int, float)):
+            print("ERRO! O preço deve ser um número.")
+            return False
+        return True
+
+    def is_valid(self):
+        return self.is_valid_tipo() and self.is_valid_preco()
