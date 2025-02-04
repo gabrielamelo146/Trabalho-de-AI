@@ -60,3 +60,21 @@ class Fornecedor :
             self.is_valid_telefone() and
             self.is_valid_email() and
             self.is_valid_tipo_de_produto())
+
+# Associar Produto ao fornecedor
+
+    def associar_produto(self, produto):
+        if produto not in self.produtos:
+            self.produtos.append(produto)
+            print(f"Produto {produto.nome} associado ao fornecedor {self.nome} com sucesso!")
+        else:
+            print("Este produto já está associado a este fornecedor.")
+
+    # Listar Produtos associados
+    def listar_produtos(self):
+        if not self.produtos:
+            print("Nenhum produto associado a este fornecedor.")
+        else:
+            print(f"Produtos fornecidos por {self.nome}:")
+            for produto in self.produtos:
+                print(f"- {produto.nome} (ID: {produto.id}, Preço: {produto.preco}, Quantidade: {produto.quantidade})")
