@@ -16,4 +16,47 @@ class Fornecedor :
      nome,telefone,email,tipo_de_produto,produtos= data_str.strip().split(",")
      return Fornecedor(nome,telefone,email,tipo_de_produto,produtos )
     
+ #Erros/Validação de dados
 
+    #validação do nome
+    def is_valid_nome(self):
+        if not all(c.isalpha() or c.isspace() for c in self.nome):#verifica se é composto apenas por letras e tbm permite espaços
+            print("ERRO! O nome deve conter apenas letras")
+            return False
+        return True
+
+    #validação Telefone
+    def is_valid_telefone(self):
+
+        if not str(self.telefone).isdigit(): #verifica se o telefone tem apenas numeros
+            print("ERRO! O telerfone só pode conter números")
+            return False
+
+        if not  len(self.telefone) ==9:  # verifica se o telefone tem 9 numeros
+            print("ERRO! O telefone deve conter apenas 9 dígitos")
+            return False
+        return True
+
+    #Validação email
+    def is_valid_email(self):
+        email_regex =r"^[\w\.-]+@[\w\.-]+\.\w+$"
+        if not re.match (email_regex, self.email):
+            print("ERRO! Email inválido.Tente novamente!")
+            return False
+        return True
+
+
+    #Validação Tipo de Produto
+    def is_valid_tipo_de_produto(self):
+        lista_tipos = ["frescos", "congelados", "embalados", "enlatados"]
+        if self.tipo_de_produto in lista_tipos:
+            return True
+        else:
+            print("ERRO!Tipo de produto inválido.Tente novamente!")
+            return False
+
+    def is_valid(self):
+        return (self.is_valid_nome() and
+            self.is_valid_telefone() and
+            self.is_valid_email() and
+            self.is_valid_tipo_de_produto())
